@@ -63,6 +63,6 @@ public interface StatefulTransformer<SK, SV, IK, IV, RK, RV> {
                         storeKeySerde(),
                         storeValueSerde());
         builder.addStateStore(storeBuilder);
-        return input.transform(() -> new KTransformer(), storeName);
+        return input.transform(KTransformer::new, storeName);
     }
 }
